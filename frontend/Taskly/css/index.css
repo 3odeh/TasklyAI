@@ -1,0 +1,13 @@
+.sidemenu{
+    width: 18%;
+    height: 100%;
+    background-color: #202020;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidemenu span{
+    color: white;
+    font-size: 2.5vw;
+}
