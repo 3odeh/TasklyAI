@@ -1,0 +1,338 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  .sidemenu {
+    width: 18%;
+    height: 100%;
+    background-color: #202020;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .sidemenu span {
+    color: white;
+    font-size: 2.5vw;
+  }
+  
+  .main-content {
+    width: 62%;
+    padding: 20px;
+  }
+
+  .dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  /* Right sidebar */
+  .right-sidebar {
+    width: 20%;
+    height: 100%;
+    padding: 20px;
+    background-color: #f8f9fa;
+    overflow-y: auto;
+  }
+  
+  /* User profile */
+  .user-profile {
+    text-align: center;
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  }
+  
+  .user-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+  }
+  
+  .username {
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+  
+  .user-status {
+    background-color: #ffc107;
+    color: black;
+    padding: 2px 15px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  
+  /* Charts and graphs */
+  .chart-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  /* Task cards */
+  .task-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+  }
+  
+  .tasks {
+    margin-top: 50px;
+  }
+  
+  .task-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .priority-badge {
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 600;
+    color: white;
+  }
+  
+  .priority-high {
+    background-color: #dc3545;
+  }
+  
+  .priority-medium {
+    background-color: #fd7e14;
+  }
+  
+  .task-checklist {
+    margin: 15px 0;
+  }
+  
+  .task-checklist .form-check {
+    margin-bottom: 8px;
+  }
+  
+  .progress {
+    height: 8px;
+    margin-top: 15px;
+  }
+  
+  /* Calendar */
+  .calendar {
+    text-align: center;
+  }
+  
+  .calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .calendar table {
+    width: 100%;
+  }
+  
+  .calendar th, .calendar td {
+    padding: 8px;
+    text-align: center;
+  }
+  
+  .calendar .today {
+    background-color: #dc3545;
+    color: white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+
+  .calendar {
+    height: max-content;
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  }
+
+  .calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    padding: 10px;
+  }
+
+  .calendar-body {
+    padding: 10px;
+  }
+
+  .calendar-week-day {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-weight: 600;
+    height: 30px;
+  }
+
+  .calendar-week-day div {
+    display: grid;
+    place-items: center;
+    color: #555;
+    font-size: 12px;
+  }
+
+  .calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+    color: #333;
+  }
+
+  .calendar-days div {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    position: relative;
+    cursor: pointer;
+    font-size: 12px;
+  }
+
+  .month-picker {
+    padding: 5px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .month-picker:hover {
+    background-color: var(--bg-hover);
+}
+
+  .year-picker {
+    display: flex;
+    align-items: center;
+  }
+
+  .year-change {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    margin: 0 10px;
+    cursor: pointer;
+  }
+  .year-change:hover {
+    background-color: var(--bg-hover);
+}
+
+  /* Reminders section */
+  .reminders {
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    margin-top: 20px;
+  }
+
+  .reminder-title {
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
+
+  .reminder-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+  }
+
+  .reminder-item:last-child {
+    border-bottom: none;
+  }
+
+  .reminder-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #333;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    font-size: 12px;
+  }
+
+  .reminder-content {
+    flex: 1;
+  }
+
+  .reminder-text {
+    font-weight: 500;
+    margin-bottom: 3px;
+  }
+
+  .reminder-date {
+    font-size: 12px;
+    color: #888;
+  }
+  .chat-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #ddd;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.chat-button .chat-icon {
+    font-size: 20px;
+}
+
+.star {
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    background-color: black;
+    color: white;
+    font-size: 12px;
+    width: 15px;
+    height: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
