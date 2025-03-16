@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Load sidebar content dynamically
-    fetch("../components/sidebar.html")
+    fetch("components/sidebar.html")
         .then(response => response.text())
         .then(data => {
             document.getElementById("sidebar-container").innerHTML = data;
