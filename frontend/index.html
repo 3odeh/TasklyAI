@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <script src="scripts/app.js"></script>
+    <h1>Task Manager</h1>
+
+    <form id="taskForm">
+        <label>Title:</label>
+        <input type="text" id="title" placeholder="Task Title" required>
+
+        <label>Description:</label>
+        <input type="text" id="description" placeholder="Task Description">
+
+        <label>Due Date:</label>
+        <input type="date" id="dueDate" required>
+
+        <label>Priority:</label>
+        <select id="priority">
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+        </select>
+
+        <label>Repeat:</label>
+        <select id="repeat">
+            <option value="none">None</option>
+            <option value="daily">Daily</option>
+            <option value="weekly">Weekly</option>
+            <option value="monthly">Monthly</option>
+            <option value="annually">Annually</option>
+        </select>
+
+        <h3>Subtasks:</h3>
+        <div id="subtasksContainer"></div>
+        <button type="button" onclick="addSubtask()">+ Add Subtask</button>
+
+        <button type="submit">Add Task</button>
+    </form>
+
+    <p id="message"></p>
+
+    <script>
+        const API_URL = "http://localhost:5000/api/tasks/createTask";
+const token = "YOUR_JWT_TOKEN"; // Replace with a valid token from authentication
+
+document.getElementById("taskForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    // Collect main task values
+    const title = document.getElementById("title").value;
+    const description = document.getElementById("description").value;
+    const dueDate = document.getElementById("dueDate").value;
+    const priority = document.getElementById("priority").value;
+    const repeat = document.getElementById("repeat").value;
+
+    // Collect subtasks
+    const subtaskContainers = document.querySelectorAll(".subtask-container");
+    const subtasks = Array.from(subtaskContainers).map(container => ({
+        title: container.querySelector(".subtask-title").value,
+        description: container.querySelector(".subtask-description").value,
+        dueDate: container.querySelector(".subtask-dueDate").value,
+        priority: container.querySelector(".subtask-priority").value,
+        repeat: container.querySelector(".subtask-repeat").value,
+        status: "pending",
+        subtasks: [],
+        notes: [],
+        drawings: []
+    }));
+
+    const task = {
+        title,
+        description,
+        dueDate,
+        priority,
+        repeat,
+        subtasks
+    };
+
+    // Send POST request to backend
+    try {
+        const response = await fetch(API_URL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+            },
+            body: JSON.stringify(task)
+        });
+
+        if (response.ok) {
+            document.getElementById("message").innerText = "Task added successfully!";
+            document.getElementById("taskForm").reset();
+            document.getElementById("subtasksContainer").innerHTML = ""; // Clear subtasks
+        } else {
+            document.getElementById("message").innerText = "Error adding task.";
+        }
+    } catch (error) {
+        console.error("Error:", error);
+        document.getElementById("message").innerText = "Failed to connect to server.";
+    }
+});
+    </script>
+
+    
+</body>
+</html>
