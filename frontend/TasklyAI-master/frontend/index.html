@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taskly</title>
+    <link rel="icon" type="image/png" href="img/logo png.png">
+    <link rel="stylesheet" href="styles/sidebar.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/tasks.css">
+    <link rel="stylesheet" href="styles/bootstrap.css">
+
+      <!-- Google Charts -->
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+
+    <div id="sidebar-container"></div> <!-- load Side bar -->
+
+    <!-- Content Section -->
+    <div id="content">
+        <div id="dashboard-content" class="content-section"></div>
+        
+        <div id="tasks-content" class="content-section" style="display:none;">
+            
+            <div class="containerSalah" id="tasks-content">
+
+        
+                <div class="content">
+              
+        
+        
+                    <div class="content-details">
+                        <div class="content-column">
+                            <div class="column-header">
+                                <span>To-Do</span>
+                                <span>2</span>
+                            </div>
+        
+                            <div class="column-tasks">
+                                <div class="task">
+                                    <span class="priority high">High</span>
+                                    <div class="task-details">
+                                        <span class="header">Add a new feature to users</span>
+                                        <span class="task-description">Implement a new feature that improves the overall user
+                                            experience</span>
+                                    </div>
+        
+                                    <div class="checkbox-wrapper-11">
+                                        <input id="task-1" type="checkbox" name="task-group-1" value="1">
+                                        <label for="task-1">Design the Feature:</label>
+        
+                                        <input id="task-2" type="checkbox" name="task-group-1" value="2">
+                                        <label for="task-2">Design the Feature:</label>
+        
+                                        <input id="task-3" type="checkbox" name="task-group-1" value="3">
+                                        <label for="task-3">Design the Feature:</label>
+                                    </div>
+        
+        
+                                    <div class="progress">
+                                        <div class="progress-text">
+                                            <span>Progress</span>
+                                            <span>66%</span>
+                                        </div>
+        
+                                        <div class="progress-line"></div>
+                                    </div>
+                                </div>
+                                <div class="task">
+                                    <span class="priority medium">Medium</span>
+                                    <div class="task-details">
+                                        <span class="header">Review new feature code</span>
+                                        <span class="task-description">Check for bugs before the next update.</span>
+                                    </div>
+                                    <div class="checkbox-wrapper-11">
+                                        <input id="task-11" type="checkbox" name="task-group-2" value="1">
+                                        <label for="task-11">Design the Feature:</label>
+        
+                                        <input id="task-22" type="checkbox" name="task-group-2" value="2">
+                                        <label for="task-22">Design the Feature:</label>
+        
+                                        <input id="task-33" type="checkbox" name="task-group-2" value="3">
+                                        <label for="task-33">Design the Feature:</label>
+                                    </div>
+        
+        
+                                    <div class="progress">
+                                        <div class="progress-text">
+                                            <span>Progress</span>
+                                            <span>50%</span>
+                                        </div>
+        
+                                        <div class="progress-line"></div>
+                                    </div>
+                                </div>
+                                <button class="add-task">Add Task</button>
+                            </div>
+                        </div>
+                        <div class="content-column">
+                            <div class="column-header">
+                                <span>To-Do</span>
+                                <span>2</span>
+                            </div>
+        
+                            <div class="column-tasks">
+                                <div class="task">
+                                    <span class="priority high">High</span>
+                                    <div class="task-details">
+                                        <span class="header">Add a new feature to users</span>
+                                        <span class="task-description">Implement a new feature that improves the overall user
+                                            experience</span>
+                                    </div>
+                                    <div class="checkbox-wrapper-11">
+                                        <input id="2task-1" type="checkbox" name="r" value="1">
+                                        <label for="2task-1">Design the Feature:</label>
+        
+                                        <input id="2task-2" type="checkbox" name="r" value="2">
+                                        <label for="2task-2">Design the Feature:</label>
+        
+                                        <input id="2task-3" type="checkbox" name="r" value="3">
+                                        <label for="2task-3">Design the Feature:</label>
+                                    </div>
+        
+                                    <div class="progress">
+                                        <div class="progress-text">
+                                            <span>Progress</span>
+                                            <span>66%</span>
+                                        </div>
+        
+                                        <div class="progress-line"></div>
+                                    </div>
+                                </div>
+                                <div class="task">
+                                    <span class="priority medium">Medium</span>
+                                    <div class="task-details">
+                                        <span class="header">Review new feature code</span>
+                                        <span class="task-description">Check for bugs before the next update.</span>
+                                    </div>
+                                    <div class="checkbox-wrapper-11">
+                                        <input id="2task-11" type="checkbox" name="r" value="2">
+                                        <label for="2task-11">Design the Feature:</label>
+        
+                                        <input id="2task-22" type="checkbox" name="r" value="2">
+                                        <label for="2task-22">Design the Feature:</label>
+        
+                                        <input id="2task-33" type="checkbox" name="r" value="2">
+                                        <label for="2task-33">Design the Feature:</label>
+                                    </div>
+        
+                                    <div class="progress">
+                                        <div class="progress-text">
+                                            <span>Progress</span>
+                                            <span>50%</span>
+                                        </div>
+        
+                                        <div class="progress-line"></div>
+                                    </div>
+                                </div>
+                                <div class="task">
+                                    <span class="priority low">Low</span>
+                                    <div class="task-details">
+                                        <span class="header">Review new feature code</span>
+                                        <span class="task-description">Check for bugs before the next update.</span>
+                                    </div>
+                                    <div class="checkbox-wrapper-11">
+                                        <input id="2task-111" type="checkbox" name="r" value="2">
+                                        <label for="2task-111">Design the Feature:</label>
+        
+                                        <input id="2task-222" type="checkbox" name="r" value="2">
+                                        <label for="2task-222">Design the Feature:</label>
+        
+        
+                                    </div>
+        
+                                    <div class="progress">
+                                        <div class="progress-text">
+                                            <span>Progress</span>
+                                            <span>50%</span>
+                                        </div>
+        
+                                        <div class="progress-line"></div>
+                                    </div>
+                                </div>
+                                <span class="add-task">Add Task</span>
+                            </div>
+                        </div>
+                        <div class="content-column">
+                            <div class="column-header">
+                                <span>To-Do</span>
+                                <span>2</span>
+                            </div>
+        
+                            <div class="column-tasks">
+                                <div class="task">
+                                    <span class="priority medium">Medium</span>
+                                    <div class="task-details">
+                                        <span class="header">Add a new feature to users</span>
+                                        <span class="task-description">Implement a new feature that improves the overall user
+                                            experience</span>
+                                    </div>
+                                    <div class="checkbox-wrapper-11">
+                                        <input id="3task-1" type="checkbox" name="r" value="2">
+                                        <label for="3task-1">Design the Feature:</label>
+        
+                                        <input id="3task-2" type="checkbox" name="r" value="2">
+                                        <label for="3task-2">Design the Feature:</label>
+                                        <input id="3task-3" type="checkbox" name="r" value="2">
+                                        <label for="3task-3">Design the Feature:</label>
+        
+        
+                                    </div>
+        
+                                    <div class="progress">
+                                        <div class="progress-text">
+                                            <span>Progress</span>
+                                            <span>66%</span>
+                                        </div>
+        
+                                        <div class="progress-line"></div>
+                                    </div>
+                                </div>
+                                <div class="task">
+                                    <span class="priority low">Low</span>
+                                    <div class="task-details">
+                                        <span class="header">Review new feature code</span>
+                                        <span class="task-description">Check for bugs before the next update.</span>
+                                    </div>
+                                    <div class="checkbox-wrapper-11">
+                                        <input id="3task-11" type="checkbox" name="r" value="2">
+                                        <label for="3task-11">Design the Feature:</label>
+        
+                                        <input id="3task-22" type="checkbox" name="r" value="2">
+                                        <label for="3task-22">Design the Feature:</label>
+        
+        
+                                    </div>
+        
+                                    <div class="progress">
+                                        <div class="progress-text">
+                                            <span>Progress</span>
+                                            <span>50%</span>
+                                        </div>
+        
+                                        <div class="progress-line"></div>
+                                    </div>
+                                </div>
+                                <span class="add-task">Add Task</span>
+                            </div>
+                        </div>
+        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="chat-content" class="content-section" style="display:none;">
+            <div class="welcome">
+                <img src="img/logo png.png" alt="">
+                <h1>Hi <span class="userName">Zaid!</span> How Can I Help you Today</h1>
+            </div>
+
+            <div class="selectionList">
+                <div class="selectionItem">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <span>Ask any Question</span>
+                </div>
+                <div class="selectionItem">
+                    <i class="fa-solid fa-pen"></i>
+                    <span>Draft anything</span>
+                </div>
+                <div class="selectionItem">
+                    <i class="fa-regular fa-lightbulb"></i>
+                    <span>Brainstorm ideas</span>
+                </div>
+                <div class="selectionItem">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <span>Find Information</span>
+                </div>
+                <div class="selectionItem">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <span>Explore Topics</span>
+                </div>
+            </div>
+            
+
+            
+            <div class="inputs">
+                <div class="input-container">
+                    <textarea id="chatInput" placeholder="Type your message here..." rows="1"></textarea>
+                    <div class="icons">
+                        <i class="fa-solid fa-paperclip"></i>
+                        <i class="fa-solid fa-arrow-up"></i>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div id="settings-content" class="content-section" style="display:none;">
+            <h1>Settings Content</h1>
+            <p>This is the settings content.</p>
+        </div>
+    </div>
+
+    <script src="scripts/sidebar.js"></script>
+    <script src="scripts/script.js" defer></script>
+
+    <script>
+        const chatInput = document.getElementById("chatInput");
+
+        chatInput.addEventListener("input", function () {
+            this.style.height = "auto"; // Reset height to auto
+            this.style.height = this.scrollHeight + "px"; // Adjust height based on content
+        });
+
+    </script>
+        <script src="scripts/script.js" defer></script>
+
+</body>
+
+</html>
