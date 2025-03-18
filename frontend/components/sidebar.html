@@ -1,0 +1,64 @@
+<head>
+    <link rel="stylesheet" href="../styles/sidebar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="menu">
+        <div class="container">
+            <div class="top_icon">
+                <!-- <h1><i class="fa-solid fa-cart-shopping"></i> QTech</h1> -->
+                <a href="#" class="logoTopMenu"><img src="img/logo png.png" width="" alt=""></a>
+            </div>
+
+            <div class="menu_item" id="dashboardMenu">
+                <h2><i class="fa-solid fa-chart-pie"></i> Dashboard</h2>
+            </div>
+
+            <div class="menu_item" id="tasksSection">
+                <h2><i class="fa-solid fa-list-check"></i> Tasks</h2>
+
+            </div>
+
+            <div class="menu_item" id="chatSection">
+                <h2><i class="fa-solid fa-message"></i> Chat With AI </h2>
+            </div>
+
+        </div>
+
+        <div class="helpAndSupport">
+            <p>Help & Support</p>
+
+
+            <div class="help_item" id="settings">
+                <h2><i class="fa-solid fa-gear"></i> Settings</h2>
+            </div>
+        </div>
+
+
+        <div class="menu_item_logout" id="messages">
+            <h2><i class="fa-solid fa-arrow-right-from-bracket"></i> logout</h2>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    // Select all menu items
+    let menuItems = document.querySelectorAll(".menu_item, .menu_item_logout, .help_item");
+
+    menuItems.forEach(item => {
+        item.addEventListener("click", function () {
+            // Remove 'active' class from all items
+            menuItems.forEach(menu => menu.classList.remove("active"));
+            
+            // Add 'active' class to the clicked item
+            this.classList.add("active");
+        });
+    });
+});
+
+    </script>
+</body>
+
