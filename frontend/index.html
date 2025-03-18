@@ -26,7 +26,9 @@
             <p>This is the tasks content.</p>
         </div>
 
-        <div id="chat-content" class="content-section" style="display:none;">
+        <div id="chat-content" class="content-section" >
+           
+        </div>
             <div class="welcome">
                 <img src="img/logo png.png" alt="">
                 <h1>Hi <span class="userName">Zaid!</span> How Can I Help you Today</h1>
@@ -62,7 +64,8 @@
                     <textarea id="chatInput" placeholder="Type your message here..." rows="1"></textarea>
                     <div class="icons">
                         <i class="fa-solid fa-paperclip"></i>
-                        <i class="fa-solid fa-arrow-up"></i>
+                        <i onclick="sendMessage()" class="fa-solid fa-arrow-up"></i>
+                        
                     </div>
                 </div>
             </div>
@@ -75,6 +78,8 @@
             <p>This is the settings content.</p>
         </div>
     </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./scripts/app.js"></script>
 
     <script src="./scripts/sidebar.js"></script>
 
