@@ -29,12 +29,26 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             // Show Dashboard content by default
+            // const dashboardContent = document.getElementById("dashboard-content");
+            // if (dashboardContent) {
+            //     dashboardContent.style.display = "block";
+            //     console.log("Dashboard content displayed");
+            // } else {
+            //     console.error("Dashboard content element not found");
+            // }
+
             const dashboardContent = document.getElementById("dashboard-content");
             if (dashboardContent) {
                 dashboardContent.style.display = "block";
-                console.log("Dashboard content displayed");
-            } else {
-                console.error("Dashboard content element not found");
+                if (!dashboardContent.innerHTML.trim()) {
+                    fetch("dashboard.html")
+                        .then(response => response.text())
+                        .then(data => {
+                            dashboardContent.innerHTML = data;
+                            console.log("Dashboard content loaded dynamically");
+                        })
+                        .catch(error => console.error("Error loading dashboard:", error));
+                }
             }
 
             // Event listener for menu item clicks

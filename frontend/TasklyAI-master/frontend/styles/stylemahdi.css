@@ -1,5 +1,5 @@
 #content {
-    margin-top: 18%;
+    margin-top: 1%;
     height: 100vh; /* Full height of the viewport */
     display: flex;
     flex-direction: column;
@@ -7,7 +7,7 @@
     align-items: center; /* Center the content horizontally */
 }
 
-.welcome {
+#chat-content .welcome {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -15,12 +15,14 @@
     width: 50%;
     text-align: center;
 }
+#chat-content  {
+    padding-left: 20%;
+}
 
-
-.welcome img {
+#chat-content .welcome img {
     width: 200px;
 }
-.inputs {
+#chat-content .inputs {
     width: 55%; /* Slightly wider for better usability */
     padding: 15px; /* Reduced padding for a sleeker look */
     position: fixed;
@@ -36,7 +38,7 @@
     transition: box-shadow 0.3s ease; /* Smooth transition for hover effect */
 }
 
-.inputs:hover {
+#chat-content .inputs:hover {
     box-shadow: 0px -4px 20px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
 }
 
@@ -139,7 +141,7 @@
     color: black;
 }
 
-.selectionList {
+#chat-content .selectionList {
     position: fixed;
     bottom: 10px;
     left: 50%;
@@ -184,63 +186,33 @@
 }
 
 @media (max-width: 1440px) {
-    .welcome,
-    .inputs {
+    #chat-content .welcome,
+    #chat-content .inputs {
         left: 56%;
     }
 
-    .selectionList  {
+    #chat-content .selectionList  {
         left: 56%;
     }
 }
 
 
 @media (max-width: 1400px) {
-    .welcome,
-    .inputs {
+    #chat-content .welcome,
+    #chat-content .inputs {
         left: 56%;
     }
 
-    .selectionList  {
+    #chat-content .selectionList  {
         left: 56%;
     }
 }
 
 @media (max-width: 1024px) {
-    .welcome,
-    .inputs {
+    #chat-content .welcome,
+    #chat-content .inputs {
         left: 56%;
     }
-}body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: #f4f4f4;
-}
-
-form {
-    width: 50%;
-    margin: auto;
-    padding: 20px;
-    background: white;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
-
-input, select, button {
-    display: block;
-    width: 100%;
-    margin: 10px auto;
-    padding: 10px;
-}
-
-button {
-    background-color: #28a745;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #218838;
 }
 
 .subtask-container {
