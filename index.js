@@ -23,7 +23,44 @@ app.get("/", (req, res) => {
 // Initialize Gemini AI Model
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+if (!model) {
+    console.error("Gemini model is not initialized correctly!");
+}
 
+const conversationHistory = [];
+
+async function generateAIResponse(userMessage) {
+    // Prepend system instructions to the *first* user message *if* it's the very first message.
+    let promptToUse = userMessage;
+    if (conversationHistory.length === 0) {
+        promptToUse = `You are TasklyAI, an AI-powered task management system. You help users organize tasks, manage time, take notes, and create schedules. You have an AI chatbot that schedules tasks based on input data and productivity patterns. Users can manually edit and drag-and-drop tasks. Notes are automatically saved during conversations and linked to tasks. You provide reminders, productivity analytics, and allow users to upload and store tasks, notes, and drawings. User requests will be based on these features. ${userMessage}`;
+    }
+
+    conversationHistory.push({ role: "user", content: promptToUse });
+
+    const messages = conversationHistory.map(message => ({
+        role: message.role,
+        parts: [{ text: message.content }]
+    }));
+
+    let aiResponse = "Sorry, there was an error processing your request."; // Default error message
+    try {
+        const result = await model.generateContent({
+            contents: messages,
+        });
+        const response = await result.response;
+        console.log("Full API Response:", response);
+        aiResponse = response.text();
+        console.log("API Response Text:", aiResponse);
+        conversationHistory.push({ role: "model", content: aiResponse });
+
+    } catch (error) {
+        console.error("Error generating AI response:", error);
+        console.error("Error Details:", error.message);
+    }
+    console.log("generateAIResponse returning:", aiResponse);
+    return aiResponse; // Return the response (either from API or the error message)
+}
 // WebSocket handling
 io.on("connection", (socket) => {
     console.log("A user connected");
@@ -46,16 +83,19 @@ io.on("connection", (socket) => {
             // const aiResponse = response.data.candidates[0].output || "Sorry, I couldn't understand that.";
 
             // io.emit("chat message", aiResponse); // Send AI response back
-            const result = await model.generateContent(msg);
-            const response = await result.response;
-            const text = response.text();
+
+            // const result = await model.generateContent(msg);
+            // const response = await result.response;
+            // const text = response.text();
 
             // Send the user's message and the AI's response back to the client
-            io.emit("chat message", msg); // Send user's message
-            io.emit("chat message", "AI: " + text); // Send AI's response
+            const aiResponse = await generateAIResponse(msg);
+            io.emit("chat message", msg);
+            console.log("aiResponse before emit:", aiResponse);
+            io.emit("chat message", "AI: " + aiResponse); // Corrected line
         } catch (error) {
-            console.error("Gemini API Error:", error);
-            io.emit("chat message", "Error processing your request.");
+            console.error("Error in socket handler:", error);
+            io.emit("chat message", "Sorry, there was an unexpected error.");
         }
     });
 

@@ -27,6 +27,12 @@
         </div>
 
         <div id="chat-content" class="content-section" >
+            <div class="model">
+                <p>Hay :> How Can Taskly Help You Today ? </p>
+            </div>
+            
+        </div>
+        <div id="list-chat-content" class="content-section" >
            
         </div>
             <div class="welcome">
@@ -35,7 +41,7 @@
             </div>
 
             <div class="selectionList">
-                <div class="selectionItem">
+                <!-- <div class="selectionItem">
                     <i class="fa-solid fa-magnifying-glass"></i>
                     <span>Ask any Question</span>
                 </div>
@@ -54,7 +60,20 @@
                 <div class="selectionItem">
                     <i class="fa-solid fa-magnifying-glass"></i>
                     <span>Explore Topics</span>
+                </div> -->
+                <div class="selectionItem">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <span class="askAnyQuestion">Ask any Question</span>
                 </div>
+                <div class="selectionItem">
+                    <i class="fa-solid fa-pen"></i>
+                    <span onclick="showOrderMyTaskMessage()" class="orderMyTasks">Order My Tasks</span>
+                </div>
+                <div class="selectionItem">
+                    <i class="fa-regular fa-lightbulb"></i>
+                    <span>Brainstorm ideas</span>
+                </div>
+                
             </div>
             
 
@@ -64,7 +83,7 @@
                     <textarea id="chatInput" placeholder="Type your message here..." rows="1"></textarea>
                     <div class="icons">
                         <i class="fa-solid fa-paperclip"></i>
-                        <i onclick="sendMessage()" class="fa-solid fa-arrow-up"></i>
+                        <i onclick="sendMessage_orderMyTasks()" class="fa-solid fa-arrow-up"></i>
                         
                     </div>
                 </div>

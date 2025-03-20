@@ -56,11 +56,30 @@
 
 const socket = io();
 let welcomeMessageShown = true; // Track if welcome message is visible
+let orderMyTasksMessageShown = false; // Track if welcome message is visible
 
+// // Function to send message
+// function sendMessage() {
+//     const chatInput = document.querySelector(".input-container textarea");
+//     const userMessage = chatInput.value.trim();
+
+
+//     if (userMessage.length) {
+//      //   addMessage(userMessage, "user"); // Show user message first
+//      if (welcomeMessageShown) {
+//         document.querySelector(".welcome").style.display = "none";
+//         welcomeMessageShown = false; // Set flag to false after first message
+//     }
+//         socket.emit("chat message", userMessage); // Send message to server
+//         chatInput.value = ""; // Clear input
+//         chatInput.style.height = "auto"; // Reset textarea height
+//     }
+// }
 // Function to send message
-function sendMessage() {
+function sendMessage_AskAnyQuestion() {
     const chatInput = document.querySelector(".input-container textarea");
     const userMessage = chatInput.value.trim();
+    
 
     if (userMessage.length) {
      //   addMessage(userMessage, "user"); // Show user message first
@@ -73,6 +92,28 @@ function sendMessage() {
         chatInput.style.height = "auto"; // Reset textarea height
     }
 }
+// Function to send message
+function sendMessage_orderMyTasks() {
+    const chatInput = document.querySelector(".input-container textarea");
+    const userMessage = chatInput.value.trim();
+    
+
+    if (userMessage.length) {
+     //   addMessage(userMessage, "user"); // Show user message first
+     if (welcomeMessageShown) {
+        document.querySelector(".welcome").style.display = "none";
+        welcomeMessageShown = false; // Set flag to false after first message
+    }
+        const timestamp = Date.now();
+        const header= `order this tasks depend on recent  date is ${timestamp} the day date and write current dates for each task  and order it as a list : `;
+        userMessage.value = header.value +userMessage.value;
+        console.log(userMessage);
+        socket.emit("chat message", userMessage); // Send message to server
+        chatInput.value = ""; // Clear input
+        chatInput.style.height = "auto"; // Reset textarea height
+    }
+}
+
 
 // Function to add message to chat
 function addMessage(msg, sender) {
@@ -94,15 +135,40 @@ socket.on("chat message", (msg) => {
     addMessage(msg, sender); // Show message
 });
 
+// // Attach event listener to send button
+// document.querySelector(".input-container .icons .fa-arrow-up")
+//     .addEventListener("click", sendMessage);
 // Attach event listener to send button
 document.querySelector(".input-container .icons .fa-arrow-up")
-    .addEventListener("click", sendMessage);
+    .addEventListener("click", sendMessage_orderMyTasks());
+    
+//after click on ask any question , the defualt message will apper then wait user to enter what he want
+//after click on order my tasks , the defualt message will apper then wait user to enter what he want
+// document.querySelector(".selectionList .selectionItem span .orderMyTasks")
+//     .addEventListener("click", showOrderMyTaskMessage());
 
-// Also send message when Enter is pressed
-document.querySelector(".input-container textarea")
-    .addEventListener("keypress", function (event) {
-        if (event.key === "Enter" && !event.shiftKey) {
-            event.preventDefault();
-            sendMessage();
+    document.addEventListener('click', function() {
+        const element = document.querySelector(".selectionList .selectionItem span .orderMyTasks");
+        if (element) {
+            element.addEventListener('click', function() {
+                console.log('Element clicked!');
+                showOrderMyTaskMessage()
+            });
         }
     });
+
+    function showOrderMyTaskMessage(){
+        if (!orderMyTasksMessageShown){
+            addMessage("To order your tasks perfect , \n u should Write all your Tasks in the same message and I will Order it to you , ","model");
+            showOrderMyTaskMessage =true;
+        }
+    }
+
+// Also send message when Enter is pressed
+// document.querySelector(".input-container textarea")
+//     .addEventListener("keypress", function (event) {
+//         if (event.key === "Enter" && !event.shiftKey) {
+//             event.preventDefault();
+//             sendMessage();
+//         }
+//     });
