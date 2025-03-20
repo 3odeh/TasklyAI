@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             if (!dashboardContent.innerHTML.trim()) {
                                 fetch("dashboard.html")
                                     .then(response => response.text())
-                                    .then(data => {
+                                    .then(data => { 
                                         dashboardContent.innerHTML = data;
                                         console.log("Dashboard content loaded dynamically");
                                     })
