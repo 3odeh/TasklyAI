@@ -1,0 +1,158 @@
+:root {
+    --nav-BG-color: #191919;
+    --text-color: #2D2D2D;
+    --selectB-BG-color: #FFFFDD;
+    --medium-task-color: #FE8A1A;
+    --high-task-color: #F7C707;
+    --low-task-color: #393939;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.menu {
+    z-index: 1600;
+    background: var(--nav-BG-color);
+    width: 14%;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    position: fixed;
+    font-size: 18px;
+    border-top-right-radius: 50px;
+}
+
+
+.menu .container .top_icon {
+    border-bottom: 1px solid #fff;
+    font-size: 18px;
+}
+
+.menu .container .top_icon .logoTopMenu img {
+    width: 110px;
+    margin: 15px 5px;
+}
+
+.menu .container {
+    height: 100%;
+    /* This keeps the container to 100% of the menu's height */
+    display: flex;
+    flex-direction: column;
+}
+
+.container .help_item
+.container .menu_item {
+    cursor: pointer;
+    padding: 0 10px;
+
+}
+
+.menu_item_logout {
+    background-color: #ff3535;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 40px;
+    cursor: pointer;
+}
+
+.menu_item,
+.help_item {
+cursor: pointer;
+}
+.menu_item_logout h2 {
+    font-size: 23;
+}
+
+.container .help_item h2,
+.container .menu_item h2 {
+    font-size: 20px;
+    padding: 0px 15px;
+}
+
+.container .help_item h2 i,
+.container .menu_item h2 i {
+    margin-right: 5px;
+}
+
+
+.helpAndSupport p {
+    border-bottom: 1px solid #7f7f7f;
+    padding: 10px;
+}
+
+.helpAndSupport {
+    margin-bottom: 120px;
+}
+
+.helpAndSupport .help_item h2{
+    font-size: 20px;
+    padding: 15px;
+} 
+
+.helpAndSupport .help_item h2 i{
+    font-size: 20px;
+    margin-right: 5px;
+} 
+
+
+@media (max-width: 1500px) {
+    .container .menu_item h2 {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 1000px) {
+
+    .menu .container h1,
+    .menu .container h2 {
+        font-size: 0;
+        /* Hide text */
+        padding: 18px;
+        text-align: center;
+    }
+
+    .menu .container h1 i,
+    .menu .container h2 i {
+        font-size: 3rem;
+        /* Adjust icon size if needed */
+    }
+
+}
+
+/* .container .menu_item:hover {
+    color: #fcb700;
+
+} */
+
+.menu_item .msg {
+    background-color: var(--main-color);
+    padding: 5px;
+    border-radius: 5px;
+    color: #fff;
+
+}
+
+
+.help_item.active,
+.menu_item.active {
+    background-color: #fcb700;
+    /* Highlight color */
+    color: #fff;
+    /* Text color when active */
+    border-radius: 5px;
+}
+
+.menu_item.active .msg {
+    background-color: rgb(247, 75, 75);
+    /* Change background color to red when active */
+    color: white;
+    /* Keep text color white */
+}

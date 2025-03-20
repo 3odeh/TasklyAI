@@ -8,6 +8,8 @@
     <link rel="icon" type="image/png" href="img/logo png.png">
     <link rel="stylesheet" href="styles/sidebar.css">
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/stylemahdi.css">
+
     <link rel="stylesheet" href="styles/tasks.css">
     <link rel="stylesheet" href="styles/bootstrap.css">
 
@@ -257,14 +259,19 @@
             </div>
         </div>
 
+
         <div id="chat-content" class="content-section" style="display:none;">
-            <div class="welcome">
+            <div class="model">
+                <p>Hay :> How Can Taskly Help You Today ? </p>
+            </div>
+            
+            <!-- <div class="welcome">
                 <img src="img/logo png.png" alt="">
                 <h1>Hi <span class="userName">Zaid!</span> How Can I Help you Today</h1>
-            </div>
-
+            </div> -->
+    
             <div class="selectionList">
-                <div class="selectionItem">
+                <!-- <div class="selectionItem">
                     <i class="fa-solid fa-magnifying-glass"></i>
                     <span>Ask any Question</span>
                 </div>
@@ -283,29 +290,45 @@
                 <div class="selectionItem">
                     <i class="fa-solid fa-magnifying-glass"></i>
                     <span>Explore Topics</span>
+                </div> -->
+                <div class="selectionItem">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <span class="askAnyQuestion">Ask any Question</span>
                 </div>
+                <div class="selectionItem">
+                    <i class="fa-solid fa-pen"></i>
+                    <span onclick="showOrderMyTaskMessage()" class="orderMyTasks">Order My Tasks</span>
+                </div>
+                <div class="selectionItem">
+                    <i class="fa-regular fa-lightbulb"></i>
+                    <span>Brainstorm ideas</span>
+                </div>
+                
             </div>
             
-
+    
             
             <div class="inputs">
                 <div class="input-container">
                     <textarea id="chatInput" placeholder="Type your message here..." rows="1"></textarea>
                     <div class="icons">
                         <i class="fa-solid fa-paperclip"></i>
-                        <i class="fa-solid fa-arrow-up"></i>
+                        <i onclick="sendMessage_orderMyTasks()" class="fa-solid fa-arrow-up"></i>
+                        
                     </div>
                 </div>
             </div>
-
         </div>
+</div>
 
 
-        <div id="settings-content" class="content-section" style="display:none;">
-            <h1>Settings Content</h1>
-            <p>This is the settings content.</p>
-        </div>
+    <div id="settings-content" class="content-section" style="display:none;">
+        <h1>Settings Content</h1>
+        <p>This is the settings content.</p>
     </div>
+</div>
+<script src="/socket.io/socket.io.js"></script>
+<script src="./scripts/app.js"></script>
 
     <script src="scripts/sidebar.js"></script>
     <script src="scripts/script.js" defer></script>

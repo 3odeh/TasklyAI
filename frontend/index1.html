@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taskly</title>
+    <link rel="icon" type="image/png" href="img/logo png.png">
+    <link rel="stylesheet" href="styles/sidebar.css">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+
+    <div id="sidebar-container"></div> <!-- load Side bar -->
+
+    <!-- Content Section -->
+    <div id="content">
+        <div id="dashboard-content" class="content-section">
+            <h1>Dashboard Content</h1>
+            <p>This is the dashboard content.</p>
+        </div>
+
+        <div id="tasks-content" class="content-section" style="display:none;">
+            <h1>Tasks Content</h1>
+            <p>This is the tasks content.</p>
+        </div>
+
+        <div id="chat-content" class="content-section" >
+            <div class="model">
+                <p>Hay :> How Can Taskly Help You Today ? </p>
+            </div>
+            
+        </div>
+        <div id="list-chat-content" class="content-section" >
+           
+        </div>
+            <div class="welcome">
+                <img src="img/logo png.png" alt="">
+                <h1>Hi <span class="userName">Zaid!</span> How Can I Help you Today</h1>
+            </div>
+
+            <div class="selectionList">
+                <!-- <div class="selectionItem">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <span>Ask any Question</span>
+                </div>
+                <div class="selectionItem">
+                    <i class="fa-solid fa-pen"></i>
+                    <span>Draft anything</span>
+                </div>
+                <div class="selectionItem">
+                    <i class="fa-regular fa-lightbulb"></i>
+                    <span>Brainstorm ideas</span>
+                </div>
+                <div class="selectionItem">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <span>Find Information</span>
+                </div>
+                <div class="selectionItem">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <span>Explore Topics</span>
+                </div> -->
+                <div class="selectionItem">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <span class="askAnyQuestion">Ask any Question</span>
+                </div>
+                <div class="selectionItem">
+                    <i class="fa-solid fa-pen"></i>
+                    <span onclick="showOrderMyTaskMessage()" class="orderMyTasks">Order My Tasks</span>
+                </div>
+                <div class="selectionItem">
+                    <i class="fa-regular fa-lightbulb"></i>
+                    <span>Brainstorm ideas</span>
+                </div>
+                
+            </div>
+            
+
+            
+            <div class="inputs">
+                <div class="input-container">
+                    <textarea id="chatInput" placeholder="Type your message here..." rows="1"></textarea>
+                    <div class="icons">
+                        <i class="fa-solid fa-paperclip"></i>
+                        <i onclick="sendMessage_orderMyTasks()" class="fa-solid fa-arrow-up"></i>
+                        
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div id="settings-content" class="content-section" style="display:none;">
+            <h1>Settings Content</h1>
+            <p>This is the settings content.</p>
+        </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./scripts/app.js"></script>
+
+    <script src="./scripts/sidebar.js"></script>
+
+    <script>
+        const chatInput = document.getElementById("chatInput");
+
+        chatInput.addEventListener("input", function () {
+            this.style.height = "auto"; // Reset height to auto
+            this.style.height = this.scrollHeight + "px"; // Adjust height based on content
+        });
+
+    </script>
+
+</body>
+
+</html>
